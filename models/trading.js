@@ -1,14 +1,16 @@
 const { DataTypes } = require("sequelize");
-const db = require("../db");
-
-const Trading = db.define("trades", {
-  ownerID: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  cardSetID: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-module.exports = Trading;
+const sequelize = require("../db");
+// const db = require("../db");
+module.exports = (sequelize, DataTypes) => {
+  const Trading = sequelize.define("trades", {
+    ownerID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    cardSetID: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  });
+  return Trading;
+};

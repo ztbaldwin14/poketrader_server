@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { CardSet } = require("../models/cardset");
+const CardSet = require("../db").import("../models/cardset");
 const validateSession = require("../middleware/validate-session");
 const router = Router();
 
@@ -7,7 +7,7 @@ const router = Router();
 router.post("/create", validateSession, function (req, res) {
   console.log(req.user.id);
   const cardEntry = {
-    ownerId: req.body.cards.ownerId,
+    ownerID: req.body.cards.ownerId,
     setNumber: req.body.cards.setNumber,
     setName: req.body.cards.setName,
     cardTotals: req.body.cards.cardTotals,
