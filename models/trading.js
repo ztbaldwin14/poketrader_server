@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../db");
-// const db = require("../db");
+
 module.exports = (sequelize, DataTypes) => {
   const Trading = sequelize.define("trades", {
     ownerID: {

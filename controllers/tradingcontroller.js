@@ -1,12 +1,12 @@
-const { Router } = require("express");
-const { Trade } = require("../models/trading");
+const express = require("express");
+const Trade = require("../models/trading");
 const validateSession = require("../middleware/validate-session");
-const router = Router();
+const router = express.Router();
 
 //Create Trade
 router.post("/create", validateSession, (req, res) => {
+  console.log(req.user.id);
   const tradeEntry = {
-    id: req.body.trades.id,
     ownerID: req.body.trades.ownerID,
     cardSetID: req.body.trades.cardSetID,
   };
