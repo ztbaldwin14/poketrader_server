@@ -3,11 +3,7 @@ const sequelize = require("../db");
 
 module.exports = (sequelize, DataTypes) => {
   const Trading = sequelize.define("trades", {
-    ownerID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    cardSetID: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

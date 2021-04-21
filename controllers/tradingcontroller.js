@@ -1,5 +1,5 @@
 const express = require("express");
-const Trade = require("../models/trading");
+const Trade = require("../db").import("../models/trading");
 const validateSession = require("../middleware/validate-session");
 const router = express.Router();
 
@@ -7,8 +7,7 @@ const router = express.Router();
 router.post("/create", validateSession, (req, res) => {
   console.log(req.user.id);
   const tradeEntry = {
-    ownerID: req.body.trades.ownerID,
-    cardSetID: req.body.trades.cardSetID,
+    userId: req.body.trades.userId,
   };
   Trade.create(tradeEntry)
     .then((trades) => res.status(200).json(trades))

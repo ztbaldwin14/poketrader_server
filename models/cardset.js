@@ -3,10 +3,6 @@ const sequelize = require("../db");
 
 module.exports = (sequelize, DataTypes) => {
   const CardSet = sequelize.define("cardset", {
-    ownerID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     setNumber: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -33,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     rarity: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   });
